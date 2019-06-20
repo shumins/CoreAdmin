@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Update="CoreAdmin.Entity\CoreAdmin.FrameWork.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreAdmin.FrameWork.cs</LastGenOutput>
+    </None>
+    <None Update="CoreAdmin.IRepository\CoreAdmin.IRepository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreAdmin.IRepository.cs</LastGenOutput>
+    </None>
+    <None Update="CoreAdmin.Repository\CoreAdmin.Repository.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>CoreAdmin.Repository.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="CoreAdmin.Entity\CoreAdmin.FrameWork.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreAdmin.FrameWork.tt</DependentUpon>
+    </Compile>
+    <Compile Update="CoreAdmin.IRepository\CoreAdmin.IRepository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreAdmin.IRepository.tt</DependentUpon>
+    </Compile>
+    <Compile Update="CoreAdmin.Repository\CoreAdmin.Repository.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>CoreAdmin.Repository.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="CoreAdmin.Entity\work\" />
+    <Folder Include="CoreAdmin.Repository\work\" />
+  </ItemGroup>
+
+</Project>

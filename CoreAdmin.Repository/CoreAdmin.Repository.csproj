@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="sqlSugarCore" Version="5.0.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CoreAdmin.Common\CoreAdmin.Common.csproj" />
+    <ProjectReference Include="..\CoreAdmin.IRepository\CoreAdmin.IRepository.csproj" />
+    <ProjectReference Include="..\CoreAdmin.Model\CoreAdmin.Model.csproj" />
+  </ItemGroup>
+
+</Project>

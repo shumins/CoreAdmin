@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>CoreAdmin</name>
+    </assembly>
+    <members>
+        <member name="T:CoreAdmin.Controllers.ValuesController">
+             <summary>
+            Values控制器
+             </summary>
+        </member>
+        <member name="M:CoreAdmin.Controllers.ValuesController.Get">
+            <summary>
+            GET请求
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:CoreAdmin.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            
+            </summary>
+            <param name="configuration"></param>
+        </member>
+        <member name="P:CoreAdmin.Startup.Configuration">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>
