@@ -27,8 +27,7 @@ namespace CoreAdmin.Controllers
         /// <returns></returns>
         // GET api/values
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
-
+        public ActionResult<IEnumerable<string>> Get()        
         {
             var a=_userRepository.Query();
             return new string[] { "value1", "value2" };

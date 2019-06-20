@@ -5,6 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Blog.Core.FrameWork.IRepository;
 using Blog.Core.FrameWork.Repository;
+using Blog.Core.Log;
+using CoreAdmin.Filters;
+using log4net;
+using log4net.Config;
+using log4net.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -19,7 +24,13 @@ using Swashbuckle.AspNetCore.Swagger;
 namespace CoreAdmin
 {
     public class Startup
-    {   
+    {
+
+        /// <summary>
+        /// log4net 仓储库
+        /// </summary>
+        public static ILoggerRepository repository { get; set; }
+
         /// <summary>
         /// 
         /// </summary>
@@ -27,6 +38,10 @@ namespace CoreAdmin
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            //log4net
+            repository = LogManager.CreateRepository(Configuration["Logging:Log4Net:Name"]);
+            //指定配置文件，如果这里你遇到问题，应该是使用了InProcess模式，请查看Blog.Core.csproj,并删之
+            XmlConfigurator.Configure(repository, new FileInfo("log4net.config"));
         }
 
         /// <summary>
@@ -60,7 +75,15 @@ namespace CoreAdmin
             #endregion
             ////注入Repository
             services.AddSingleton<IUserRepository, UserRepository>();
-
+            // log日志注入
+            services.AddSingleton<ILoggerHelper, LogHelper>();
+            //注入全局异常捕获
+            services.AddMvc(o =>
+            {
+                // 全局异常过滤      
+                o.Filters.Add(typeof(GlobalExceptionsFilter));
+            })
+            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

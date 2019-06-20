@@ -15,6 +15,34 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="T:CoreAdmin.Filters.GlobalExceptionsFilter">
+            <summary>
+            全局异常错误日志
+            </summary>
+        </member>
+        <member name="M:CoreAdmin.Filters.GlobalExceptionsFilter.WriteLog(System.String,System.Exception)">
+            <summary>
+            自定义返回格式
+            </summary>
+            <param name="throwMsg"></param>
+            <param name="ex"></param>
+            <returns></returns>
+        </member>
+        <member name="P:CoreAdmin.Filters.JsonErrorResponse.Message">
+            <summary>
+            生产环境的消息
+            </summary>
+        </member>
+        <member name="P:CoreAdmin.Filters.JsonErrorResponse.DevelopmentMessage">
+            <summary>
+            开发环境的消息
+            </summary>
+        </member>
+        <member name="P:CoreAdmin.Startup.repository">
+            <summary>
+            log4net 仓储库
+            </summary>
+        </member>
         <member name="M:CoreAdmin.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
             <summary>
             
