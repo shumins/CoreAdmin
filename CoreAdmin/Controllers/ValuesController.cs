@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Core.FrameWork.IRepository;
+using Blog.Core.FrameWork.Repository;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreAdmin.Controllers
@@ -12,7 +14,13 @@ namespace CoreAdmin.Controllers
     [Route("api/[controller]")]
     [ApiController]
     public class ValuesController : ControllerBase
-    {   
+    {
+
+        private  readonly IUserRepository _userRepository;
+        public ValuesController(IUserRepository userRepository) {
+            this._userRepository = userRepository;
+        }
+
         /// <summary>
         /// GET请求
         /// </summary>
@@ -20,7 +28,9 @@ namespace CoreAdmin.Controllers
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
+
         {
+            var a=_userRepository.Query();
             return new string[] { "value1", "value2" };
         }
 

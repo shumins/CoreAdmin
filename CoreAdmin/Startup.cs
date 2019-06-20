@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Blog.Core.FrameWork.IRepository;
+using Blog.Core.FrameWork.Repository;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,7 +37,11 @@ namespace CoreAdmin
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            
+          //  services.Add(new ServiceDescriptor(serviceType: typeof(IUserRepository),
+             //                            implementationType: typeof(UserRepository),
+             //                            lifetime: ServiceLifetime.Transient));
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             #region Swagger
             services.AddSwaggerGen(c =>
             {
@@ -52,6 +58,9 @@ namespace CoreAdmin
                 c.IncludeXmlComments(xmlPath, true);//默认的第二个参数是false，这个是controller的注释，记得修改
             });
             #endregion
+            ////注入Repository
+            services.AddSingleton<IUserRepository, UserRepository>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

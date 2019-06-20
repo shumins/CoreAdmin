@@ -12,8 +12,6 @@ namespace Blog.Core.FrameWork.Repository
 	/// </summary>	
 	public class UserRepository : BaseRepository<User>, IUserRepository
     {
-
-       
     }
 }
 

@@ -326,7 +326,7 @@ class SqlServerDbTypeMap
 class config
     {
         
-        public static readonly string ConnectionString = "Data Source=.;Initial Catalog=CoreAdmin;User ID=sa;Password=123456;";
+        public static readonly string ConnectionString = "Data Source=123.206.78.244,1833;Initial Catalog=CoreAdmin;User ID=sa;Password=q7408695.;";
         //public static readonly string ConnectionString = File.ReadAllText(@"D:\my-file\dbCountPsw2.txt").Trim();
         public static readonly string DbDatabase = "";
         public static readonly string TableName = "";
