@@ -46,7 +46,7 @@ namespace CoreAdmin.Common.DB
             }
             else
             {
-                return "server=.;uid=sa;pwd=123456;database=CoreAdmin";
+                return "server=123.206.78.244,1833;uid=sa;pwd=1q7408695.;database=CoreAdmin";
             }
 
         }
